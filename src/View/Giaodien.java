@@ -1,6 +1,6 @@
 package View;
 
-import java.awt.EventQueue;  
+import java.awt.EventQueue;   
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 
 
 import javax.swing.JPopupMenu;
+import javax.swing.UIManager;
+
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -35,6 +37,7 @@ public class Giaodien extends JFrame {
 			public void run() {
 				try {
 					Giaodien frame = new Giaodien();
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -104,11 +107,11 @@ public class Giaodien extends JFrame {
 		JPanel pn_bar = new JPanel();
 		pn_bar.setBounds(10, 10, 927, 40);
 		pn_sodophong.add(pn_bar);
-		pn_bar.setLayout(new GridLayout(1, 5, 10, 10));
+		pn_bar.setLayout(new GridLayout(1, 0, 10, 10));
 		
 		JPanel pn_luachon = new JPanel();
 		pn_bar.add(pn_luachon);
-		pn_luachon.setLayout(new GridLayout(0, 0, 0, 0));
+		pn_luachon.setLayout(new GridLayout(1, 5, 10, 10));
 		
 		JPanel panel_7 = new JPanel();
 		pn_luachon.add(panel_7);
