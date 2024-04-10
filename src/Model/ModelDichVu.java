@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class ModelDichVu {
 	
-	public ArrayList<ModelDatPhong> MdDatPhong;
 	
 	private int maDichvu;
 	private String tenDichvu;
@@ -42,7 +41,8 @@ public class ModelDichVu {
 		this.giaca = giaca;
 	}
 	
-	
+	static ArrayList<ModelDichVu> ListDv;
+	 
 	
 	
 }
