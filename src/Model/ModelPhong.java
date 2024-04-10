@@ -1,5 +1,8 @@
 package Model;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class ModelPhong {
 	private int MaPhong;
 	private String LoaiPhong;
@@ -46,5 +49,20 @@ public class ModelPhong {
 	public void setTrangThai(String trangThai) {
 		TrangThai = trangThai;
 	}
+	
+	static ArrayList<ModelPhong> ListPhong;
+
+	public ModelPhong(ArrayList<ModelPhong> listPhong) {
+		ListPhong = listPhong;
+	}
+	public ArrayList<ModelPhong> getListPhong() {
+		return ListPhong;
+	}
+	public void setListPhong(ArrayList<ModelPhong> listPhong) {
+		ListPhong = listPhong;
+	}
+	
+	
+	
 	
 }

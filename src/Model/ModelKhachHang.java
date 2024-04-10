@@ -1,6 +1,7 @@
 package Model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class ModelKhachHang {
 	private int makhachhang;
@@ -82,6 +83,16 @@ public class ModelKhachHang {
 	public void setDiachi(String diachi) {
 		this.diachi = diachi;
 	}
+	
+	static ArrayList<ModelKhachHang> ListKHang;
+	public static ArrayList<ModelKhachHang> getListKHang() {
+		return ListKHang;
+	}
+
+	public static void setListKHang(ArrayList<ModelKhachHang> listKHang) {
+		ListKHang = listKHang;
+	}
+	
 	
 	
 

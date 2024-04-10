@@ -50,6 +50,8 @@ public class Giaodien extends JFrame {
 	 * Create the frame.
 	 */
 	public Giaodien() {
+		this.setSize(1200, 800);
+		this.setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 		
 		JPanel pn_menu = new JPanel();

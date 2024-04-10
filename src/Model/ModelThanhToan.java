@@ -1,6 +1,7 @@
 package Model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 public class ModelThanhToan {
 
 	private int mathanhtoan;
@@ -47,6 +48,21 @@ public class ModelThanhToan {
 	public void setTongchiphi(int tongchiphi) {
 		this.tongchiphi = tongchiphi;
 	}
+	
+	static ArrayList<ModelThanhToan> ListBill;
+
+	public ModelThanhToan(ArrayList<ModelThanhToan> listBill) {
+		this.ListBill = listBill;
+	}
+	public static ArrayList<ModelThanhToan> getListBill() {
+		return ListBill;
+	}
+	public static void setListBill(ArrayList<ModelThanhToan> listBill) {
+		ListBill = listBill;
+	}
+	
+	
+
 	
 }
 
