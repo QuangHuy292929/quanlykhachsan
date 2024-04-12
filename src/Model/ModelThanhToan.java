@@ -51,9 +51,7 @@ public class ModelThanhToan {
 	
 	static ArrayList<ModelThanhToan> ListBill;
 
-	public ModelThanhToan(ArrayList<ModelThanhToan> listBill) {
-		this.ListBill = listBill;
-	}
+	
 	public static ArrayList<ModelThanhToan> getListBill() {
 		return ListBill;
 	}

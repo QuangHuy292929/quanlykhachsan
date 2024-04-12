@@ -1,6 +1,5 @@
 package Model;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ModelPhong {
@@ -8,11 +7,11 @@ public class ModelPhong {
 	private String LoaiPhong;
 	private Double GiaPhong;
 	private String MoTaPhong;
-	private String TrangThai;
+	private TrangThaiPhong TrangThai;
 	
 	public ModelPhong() {
 	}
-	public ModelPhong(int maPhong, String loaiPhong, Double giaPhong, String moTaPhong, String trangThai) {
+	public ModelPhong(int maPhong, String loaiPhong, Double giaPhong, String moTaPhong, TrangThaiPhong trangThai) {
 		MaPhong = maPhong;
 		LoaiPhong = loaiPhong;
 		GiaPhong = giaPhong;
@@ -43,10 +42,10 @@ public class ModelPhong {
 	public void setMoTaPhong(String moTaPhong) {
 		MoTaPhong = moTaPhong;
 	}
-	public String getTrangThai() {
+	public TrangThaiPhong getTrangThai() {
 		return TrangThai;
 	}
-	public void setTrangThai(String trangThai) {
+	public void setTrangThai(TrangThaiPhong trangThai) {
 		TrangThai = trangThai;
 	}
 	
@@ -62,7 +61,8 @@ public class ModelPhong {
 		ListPhong = listPhong;
 	}
 	
-	
-	
+	public enum TrangThaiPhong{
+		TRONG, DANG_HOAT_DONG, CHO_XAC_NHAN
+	}
 	
 }
