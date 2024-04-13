@@ -108,9 +108,6 @@ public class Giaodien extends JFrame {
 		JPanel panel_1 = new JPanel();
 		pn_menu.add(panel_1);
 		 
-		
-
-		
 
 		JPanel pn_trangchu = new JPanel();
 		pn_hoatdong.add(pn_trangchu, "anhTrangchu");
@@ -120,7 +117,6 @@ public class Giaodien extends JFrame {
 		pn_hoatdong.add(pn_sodophong, "sơ đồ phòng");
 		pn_sodophong.setLayout(null);
 		bt_sodophong.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				cardhd.show(pn_hoatdong, "sơ đồ phòng");

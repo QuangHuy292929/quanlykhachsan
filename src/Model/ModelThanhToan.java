@@ -1,6 +1,6 @@
 package Model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDateTime; 
 import java.util.ArrayList;
 public class ModelThanhToan {
 
@@ -51,7 +51,6 @@ public class ModelThanhToan {
 	
 	static ArrayList<ModelThanhToan> ListBill;
 
-	
 	public static ArrayList<ModelThanhToan> getListBill() {
 		return ListBill;
 	}
