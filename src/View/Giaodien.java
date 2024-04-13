@@ -114,6 +114,7 @@ public class Giaodien extends JFrame {
 		pn_trangchu.setLayout(new BorderLayout(0, 0));
 
 		JPanel pn_sodophong = new JPanel();
+		pn_sodophong.setBackground(new Color(128, 255, 128));
 		pn_hoatdong.add(pn_sodophong, "sơ đồ phòng");
 		pn_sodophong.setLayout(null);
 		bt_sodophong.addActionListener(new ActionListener() {
@@ -131,6 +132,7 @@ public class Giaodien extends JFrame {
 		pn_bar.setLayout(new GridLayout(1, 0, 10, 10));
 
 		JPanel pn_luachon = new JPanel();
+		pn_luachon.setBackground(new Color(128, 255, 128));
 		pn_bar.add(pn_luachon);
 		pn_luachon.setLayout(new GridLayout(1, 5, 10, 10));
 
@@ -159,6 +161,7 @@ public class Giaodien extends JFrame {
 		panel_8.add(lblNewLabel_2);
 
 		JPanel panel_phong1 = new JPanel();
+		panel_phong1.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), null, null, null));
 		panel_phong1.setBounds(10, 79, 200, 200);
 		pn_sodophong.add(panel_phong1);
 		panel_phong1.setLayout(null);
@@ -170,6 +173,7 @@ public class Giaodien extends JFrame {
 		panel_phong1.add(lblNewLabel_3);
 
 		JPanel panel_phong2 = new JPanel();
+		panel_phong2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_phong2.setBounds(252, 79, 200, 200);
 		pn_sodophong.add(panel_phong2);
 		panel_phong2.setLayout(null);
@@ -180,6 +184,7 @@ public class Giaodien extends JFrame {
 		panel_phong2.add(lblNewLabel_4);
 
 		JPanel panel_phong3 = new JPanel();
+		panel_phong3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_phong3.setBounds(498, 79, 200, 200);
 		pn_sodophong.add(panel_phong3);
 		panel_phong3.setLayout(null);
@@ -190,6 +195,7 @@ public class Giaodien extends JFrame {
 		panel_phong3.add(lblNewLabel_5);
 
 		JPanel panel_phong4 = new JPanel();
+		panel_phong4.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_phong4.setBounds(737, 79, 200, 200);
 		pn_sodophong.add(panel_phong4);
 		panel_phong4.setLayout(null);
@@ -200,6 +206,7 @@ public class Giaodien extends JFrame {
 		panel_phong4.add(lblNewLabel_6);
 
 		JPanel panel_phong5 = new JPanel();
+		panel_phong5.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_phong5.setBounds(10, 306, 200, 200);
 		pn_sodophong.add(panel_phong5);
 		panel_phong5.setLayout(null);
@@ -209,6 +216,7 @@ public class Giaodien extends JFrame {
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panel_phong5.add(lblNewLabel_7);
 		JPanel panel_phong6 = new JPanel();
+		panel_phong6.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_phong6.setBounds(10, 532, 200, 200);
 		pn_sodophong.add(panel_phong6);
 		panel_phong6.setLayout(null);
@@ -219,6 +227,7 @@ public class Giaodien extends JFrame {
 		panel_phong6.add(lblNewLabel_11);
 
 		JPanel panel_phong7 = new JPanel();
+		panel_phong7.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_phong7.setBounds(252, 532, 200, 200);
 		pn_sodophong.add(panel_phong7);
 		panel_phong7.setLayout(null);
@@ -229,6 +238,7 @@ public class Giaodien extends JFrame {
 		panel_phong7.add(lblNewLabel_12);
 
 		JPanel panel_phong8 = new JPanel();
+		panel_phong8.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_phong8.setBounds(498, 532, 200, 200);
 		pn_sodophong.add(panel_phong8);
 		panel_phong8.setLayout(null);
@@ -239,6 +249,7 @@ public class Giaodien extends JFrame {
 		panel_phong8.add(lblNewLabel_13);
 
 		JPanel panel_phong9 = new JPanel();
+		panel_phong9.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_phong9.setBounds(737, 532, 200, 200);
 		pn_sodophong.add(panel_phong9);
 		panel_phong9.setLayout(null);
@@ -249,6 +260,7 @@ public class Giaodien extends JFrame {
 		panel_phong9.add(lblNewLabel_14);
 
 		JPanel panel_phong10 = new JPanel();
+		panel_phong10.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_phong10.setBounds(737, 306, 200, 200);
 		pn_sodophong.add(panel_phong10);
 		panel_phong10.setLayout(null);
@@ -259,6 +271,7 @@ public class Giaodien extends JFrame {
 		panel_phong10.add(lblNewLabel_10);
 
 		JPanel panel_phong11 = new JPanel();
+		panel_phong11.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_phong11.setBounds(252, 306, 200, 200);
 		pn_sodophong.add(panel_phong11);
 		panel_phong11.setLayout(null);
@@ -269,6 +282,7 @@ public class Giaodien extends JFrame {
 		panel_phong11.add(lblNewLabel_8);
 
 		JPanel panel_phong12 = new JPanel();
+		panel_phong12.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_phong12.setBounds(498, 306, 200, 200);
 		pn_sodophong.add(panel_phong12);
 		panel_phong12.setLayout(null);
