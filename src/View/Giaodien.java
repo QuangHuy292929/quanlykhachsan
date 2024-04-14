@@ -20,6 +20,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.awt.CardLayout;
 import javax.swing.border.BevelBorder;
@@ -35,6 +36,9 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.RoundRectangle2D;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 import javax.swing.SwingConstants;
 import java.awt.SystemColor;
 
@@ -48,6 +52,7 @@ public class Giaodien extends JFrame {
 	JPanel pn_hoatdong;
     Color colordat = new Color(205, 180, 219);
     Color colorchoxacnhan = new Color(255, 200, 221);
+	private CardLayout cardhd;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -89,7 +94,7 @@ public class Giaodien extends JFrame {
 		pn_hoatdong = new JPanel();
 		pn_hoatdong.setBounds(231, 10, 947, 742);
 		getContentPane().add(pn_hoatdong);
-		CardLayout cardhd = new CardLayout();
+		cardhd = new CardLayout();
 		pn_hoatdong.setLayout(cardhd);
 
 		JButton bt_trangchu = new JButton("Trang chủ");
@@ -668,11 +673,112 @@ public class Giaodien extends JFrame {
 		if(phong.getTrangThai() == TrangThaiPhong.TRONG) {
 			pntrangthai.setBackground(colorchoxacnhan);
 			card.show(pnhienthi, tendp);
+			datphong.getBtquaylai().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					cardhd.show(pn_hoatdong, "sơ đồ phòng");
+					pntrangthai.setBackground(Color.getHSBColor(0, 0, (float) 0.94));
+				}
+			});
 			
+			datphong.getBtchoxacnhan().addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					card.show(pnhienthi, tenxn);
+					xacnhan.getLbhovaten().setText(datphong.getTfhovaten().getText());
+					Date selectedDate = (Date) datphong.getSpinnerngaysinh().getValue();
+					// Định dạng ngày thành chuỗi
+					SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+					String ngaysinh = dateFormat.format(selectedDate);
+					xacnhan.getLbngaysinh().setText(ngaysinh);
+					xacnhan.getLbtinhthanhpho().setText(datphong.getTftinh().getText());
+					xacnhan.getLbtinhthanhpho().setText(datphong.getTftinh().getText());
+					xacnhan.getLbcccd().setText(datphong.getTfcccd().getText());
+					xacnhan.getLbsdt().setText(datphong.getTfsdt().getText());
+					xacnhan.getLbcccd().setText(datphong.getTfcccd().getText());
+					xacnhan.getLbdichvu().setText("in ra chuỗi dv đã chọn");
+				}
+			});
+			
+			datphong.getBtxacnhan().addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					card.show(pnhienthi, tenhd);
+					hoatdong.getLbhovaten().setText(datphong.getTfhovaten().getText());
+					Date selectedDate = (Date) datphong.getSpinnerngaysinh().getValue();
+					// Định dạng ngày thành chuỗi
+					SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+					String ngaysinh = dateFormat.format(selectedDate);
+					hoatdong.getLbngaysinh().setText(ngaysinh);
+					hoatdong.getLbtinhthanhpho().setText(datphong.getTftinh().getText());
+					hoatdong.getLbtinhthanhpho().setText(datphong.getTftinh().getText());
+					hoatdong.getLbcccd().setText(datphong.getTfcccd().getText());
+					hoatdong.getLbsdt().setText(datphong.getTfsdt().getText());
+					hoatdong.getLbcccd().setText(datphong.getTfcccd().getText());
+					Date selectedDat = (Date) datphong.getSpinnerngaynhanphong().getValue();
+					// Định dạng ngày thành chuỗi
+					SimpleDateFormat dateForma = new SimpleDateFormat("dd/MM/yyyy");
+					String ngaynhanP = dateForma.format(selectedDat);
+					hoatdong.getLbngaygionhanphong().setText(ngaynhanP);
+					hoatdong.getLbtiendichvu().setText("tính tiền rồi bỏ vô đây");
+				}
+			});
 		} else if(phong.getTrangThai() == TrangThaiPhong.CHO_XAC_NHAN) {
-			
+			xacnhan.getBtquaylai().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					cardhd.show(pn_hoatdong, "sơ đồ phòng");					
+				}
+			});
+			xacnhan.getBtxacnhandat().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					card.show(pnhienthi, tenhd);
+					hoatdong.getLbhovaten().setText(datphong.getTfhovaten().getText());
+					Date selectedDate = (Date) datphong.getSpinnerngaysinh().getValue();
+					// Định dạng ngày thành chuỗi
+					SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+					String ngaysinh = dateFormat.format(selectedDate);
+					hoatdong.getLbngaysinh().setText(ngaysinh);
+					hoatdong.getLbtinhthanhpho().setText(datphong.getTftinh().getText());
+					hoatdong.getLbtinhthanhpho().setText(datphong.getTftinh().getText());
+					hoatdong.getLbcccd().setText(datphong.getTfcccd().getText());
+					hoatdong.getLbsdt().setText(datphong.getTfsdt().getText());
+					hoatdong.getLbcccd().setText(datphong.getTfcccd().getText());
+					Date selectedDat = (Date) datphong.getSpinnerngaynhanphong().getValue();
+					// Định dạng ngày thành chuỗi
+					SimpleDateFormat dateForma = new SimpleDateFormat("dd/MM/yyyy");
+					String ngaynhanP = dateForma.format(selectedDat);
+					hoatdong.getLbngaygionhanphong().setText(ngaynhanP);
+					hoatdong.getLbtiendichvu().setText("tính tiền rồi bỏ vô đây");
+				}
+			});
+			xacnhan.getBtHuy().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					//phương thức cleả form
+					cardhd.show(pn_hoatdong, "sơ đồ phòng");
+				}
+			});
 		} else if(phong.getTrangThai() == TrangThaiPhong.DANG_HOAT_DONG) {
-			
+			hoatdong.getBtquaylai().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					cardhd.show(pn_hoatdong, "sơ đồ phòng");
+				}
+			});
+			hoatdong.getBtnTrPhng().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					//show thông tin, in BILL, lưu thông tin khách hàng, thông tin hóa đơn
+				}
+			});
 		}
 		
 	}
@@ -706,6 +812,9 @@ public class Giaodien extends JFrame {
         public boolean isBorderOpaque() {
             return true;
         }
+    }
+    public void trovesodophong() {
+    	cardhd.show(pn_hoatdong, "sơ đồ phòng");
     }
     
    

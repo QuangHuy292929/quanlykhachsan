@@ -15,13 +15,13 @@ import javax.swing.JButton;
 import javax.swing.border.SoftBevelBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
 
 public class pn_Danghoatdong extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JButton btnTrPhng;
 	private JButton btquaylai;
-	private JLabel lbtienphong;
 	private JLabel lbngaygionhanphong;
 	private JLabel lbhovaten;
 	private JLabel lbngaysinh;
@@ -29,17 +29,17 @@ public class pn_Danghoatdong extends JPanel {
 	private JLabel lbcccd;
 	private JLabel lbsdt;
 	private JLabel lbtiendichvu;
-	private JLabel lbtongtien;
 
 	/**
 	 * Create the panel.
 	 */
 	public pn_Danghoatdong() {
+		
 		setPreferredSize(new Dimension(947, 742));
 		setLayout(null);
 		JPanel pnthongtinhoatdong = new JPanel();
-		pnthongtinhoatdong.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		pnthongtinhoatdong.setBounds(20, 23, 910, 452);
+		pnthongtinhoatdong.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		add(pnthongtinhoatdong);
 		pnthongtinhoatdong.setLayout(null);
 
@@ -49,33 +49,13 @@ public class pn_Danghoatdong extends JPanel {
 		pnthongtinhoatdong.add(pnhienthidichvudasudung);
 		pnhienthidichvudasudung.setLayout(null);
 
-		JLabel lblThngTinKhch = new JLabel("DỊCH VỤ ĐÃ SỬ DỤNG");
-		lblThngTinKhch.setBounds(127, 6, 300, 50);
+		JLabel lblThngTinKhch = new JLabel("DỊCH VỤ THÊM");
+		lblThngTinKhch.setBounds(150, 6, 300, 50);
 		lblThngTinKhch.setFont(new Font("Tahoma", Font.BOLD, 18));
 		pnhienthidichvudasudung.add(lblThngTinKhch);
 
-		// Tạo bảng JTable
-		JTable tabledichvu = new JTable();
-		tabledichvu.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		tabledichvu.setBounds(5, 70, 440, 300);
-
-		// Thiết lập chế độ lựa chọn chỉ có thể chọn một hàng
-		tabledichvu.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-		// Cho phép lựa chọn theo ô
-		tabledichvu.setCellSelectionEnabled(true);
-
-		// Cho phép lựa chọn theo cột
-		tabledichvu.setColumnSelectionAllowed(true);
-		tabledichvu.setRowHeight(30);
-
 		// Tạo một mẫu dữ liệu đơn giản để minh họa
 		DefaultTableModel model = new DefaultTableModel(5, 5);
-		tabledichvu.setModel(new DefaultTableModel(new Object[][] { { null }, { null }, { null }, { null }, { null },
-				{ null }, { null }, { null }, { null }, { null }, }, new String[] { "A" }));
-
-		// Thêm bảng vào panel
-		pnhienthidichvudasudung.add(tabledichvu);
 
 		JLabel lb1223 = new JLabel("Tiền dịch vụ:");
 		lb1223.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -86,6 +66,26 @@ public class pn_Danghoatdong extends JPanel {
 		lbtiendichvu.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lbtiendichvu.setBounds(103, 394, 200, 25);
 		pnhienthidichvudasudung.add(lbtiendichvu);
+		
+		JCheckBox chckbxSpa = new JCheckBox("Spa");
+		chckbxSpa.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		chckbxSpa.setBounds(150, 85, 120, 23);
+		pnhienthidichvudasudung.add(chckbxSpa);
+		
+		JCheckBox chckbxGici = new JCheckBox("Giặt ủi ");
+		chckbxGici.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		chckbxGici.setBounds(150, 111, 120, 23);
+		pnhienthidichvudasudung.add(chckbxGici);
+		
+		JCheckBox chckbxRuVan = new JCheckBox("Đồ uống tại phòng");
+		chckbxRuVan.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		chckbxRuVan.setBounds(150, 137, 150, 23);
+		pnhienthidichvudasudung.add(chckbxRuVan);
+		
+		JCheckBox chckbxFitness = new JCheckBox("Fitness");
+		chckbxFitness.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		chckbxFitness.setBounds(150, 163, 120, 23);
+		pnhienthidichvudasudung.add(chckbxFitness);
 
 		JPanel panel = new JPanel();
 		panel.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -129,64 +129,38 @@ public class pn_Danghoatdong extends JPanel {
 		panel.add(lblNewLabel_5);
 
 		lbsdt = new JLabel("New label");
-		lbsdt.setBounds(230, 110, 195, 22);
+		lbsdt.setBounds(230, 189, 195, 22);
 		lbsdt.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lbsdt);
 
 		lbcccd = new JLabel("New label");
-		lbcccd.setBounds(230, 135, 195, 22);
+		lbcccd.setBounds(230, 162, 195, 22);
 		lbcccd.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lbcccd);
 
 		lbtinhthanhpho = new JLabel("New label");
-		lbtinhthanhpho.setBounds(230, 161, 195, 22);
+		lbtinhthanhpho.setBounds(230, 216, 195, 22);
 		lbtinhthanhpho.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lbtinhthanhpho);
 
 		lbngaysinh = new JLabel("New label");
-		lbngaysinh.setBounds(230, 189, 195, 22);
+		lbngaysinh.setBounds(230, 135, 195, 22);
 		lbngaysinh.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lbngaysinh);
 
 		lbhovaten = new JLabel("New label");
-		lbhovaten.setBounds(230, 216, 195, 22);
+		lbhovaten.setBounds(230, 110, 195, 22);
 		lbhovaten.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lbhovaten);
 
-		JLabel lblNewLabel_5_1_1 = new JLabel("Tiền phòng:");
-		lblNewLabel_5_1_1.setBounds(33, 270, 187, 22);
-		lblNewLabel_5_1_1.setFont(new Font("Arial", Font.PLAIN, 18));
-		panel.add(lblNewLabel_5_1_1);
-
 		lbngaygionhanphong = new JLabel("New label");
-		lbngaygionhanphong.setBounds(230, 270, 195, 22);
+		lbngaygionhanphong.setBounds(230, 243, 195, 22);
 		lbngaygionhanphong.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lbngaygionhanphong);
 
-		lbtienphong = new JLabel("New label");
-		lbtienphong.setBounds(230, 243, 195, 22);
-		lbtienphong.setFont(new Font("Arial", Font.PLAIN, 18));
-		panel.add(lbtienphong);
-
-		JPanel pnbuttonhoatdong = new JPanel();
-		pnbuttonhoatdong.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		pnbuttonhoatdong.setBounds(20, 495, 910, 58);
-		add(pnbuttonhoatdong);
-		pnbuttonhoatdong.setLayout(null);
-
-		JLabel lblNewLabel_5_1_1_1 = new JLabel("Tổng Tiền: ");
-		lblNewLabel_5_1_1_1.setBounds(63, 5, 100, 17);
-		lblNewLabel_5_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		pnbuttonhoatdong.add(lblNewLabel_5_1_1_1);
-
-		lbtongtien = new JLabel("New label");
-		lbtongtien.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lbtongtien.setBounds(201, 6, 200, 17);
-		pnbuttonhoatdong.add(lbtongtien);
-
 		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(20, 490, 910, 68);
 		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panel_1.setBounds(20, 563, 910, 68);
 		add(panel_1);
 		panel_1.setLayout(null);
 
@@ -203,5 +177,77 @@ public class pn_Danghoatdong extends JPanel {
 		btnTrPhng.setBounds(751, 10, 149, 49);
 		panel_1.add(btnTrPhng);
 		btnTrPhng.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	}
+
+	public JButton getBtnTrPhng() {
+		return btnTrPhng;
+	}
+
+	public void setBtnTrPhng(JButton btnTrPhng) {
+		this.btnTrPhng = btnTrPhng;
+	}
+
+	public JButton getBtquaylai() {
+		return btquaylai;
+	}
+
+	public void setBtquaylai(JButton btquaylai) {
+		this.btquaylai = btquaylai;
+	}
+
+	public JLabel getLbngaygionhanphong() {
+		return lbngaygionhanphong;
+	}
+
+	public void setLbngaygionhanphong(JLabel lbngaygionhanphong) {
+		this.lbngaygionhanphong = lbngaygionhanphong;
+	}
+
+	public JLabel getLbhovaten() {
+		return lbhovaten;
+	}
+
+	public void setLbhovaten(JLabel lbhovaten) {
+		this.lbhovaten = lbhovaten;
+	}
+
+	public JLabel getLbngaysinh() {
+		return lbngaysinh;
+	}
+
+	public void setLbngaysinh(JLabel lbngaysinh) {
+		this.lbngaysinh = lbngaysinh;
+	}
+
+	public JLabel getLbtinhthanhpho() {
+		return lbtinhthanhpho;
+	}
+
+	public void setLbtinhthanhpho(JLabel lbtinhthanhpho) {
+		this.lbtinhthanhpho = lbtinhthanhpho;
+	}
+
+	public JLabel getLbcccd() {
+		return lbcccd;
+	}
+
+	public void setLbcccd(JLabel lbcccd) {
+		this.lbcccd = lbcccd;
+	}
+
+	public JLabel getLbsdt() {
+		return lbsdt;
+	}
+
+	public void setLbsdt(JLabel lbsdt) {
+		this.lbsdt = lbsdt;
+	}
+
+	public JLabel getLbtiendichvu() {
+		return lbtiendichvu;
+	}
+
+	public void setLbtiendichvu(JLabel lbtiendichvu) {
+		this.lbtiendichvu = lbtiendichvu;
 	}
 }

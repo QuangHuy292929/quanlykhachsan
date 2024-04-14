@@ -18,6 +18,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
+import javax.swing.SpinnerNumberModel;
 
 public class pn_Datphong extends JPanel {
 
@@ -29,17 +30,27 @@ public class pn_Datphong extends JPanel {
 	private JCheckBox cbtuantrangmat;
 	private JCheckBox cbgiacquanao;
 	private JCheckBox cbdungdiemtam;
-	private JCheckBox cbankhuya;
 	private JCheckBox cbtrongtre;
 	private JButton btquaylai;
 	private JButton btxacnhan;
 	private JButton btchoxacnhan;
 	private SpinnerDateModel model;
+	private JLabel lblNewLabel_6;
+	private JLabel lblNewLabel_7;
+	private JSpinner spinnerngaysinh;
+	private JSpinner spinnerngaynhanphong;
+	private JSpinner spinnerngaytraphong;
+	
+	
+	
 
 	/**
 	 * Create the panel.
 	 */
 	public pn_Datphong() {
+		
+		
+		
 		setPreferredSize(new Dimension(947, 742));
 		setLayout(null);
 
@@ -105,7 +116,7 @@ public class pn_Datphong extends JPanel {
 		lblNewLabel_3.setFont(new Font("Arial", Font.PLAIN, 18));
 
 		// Tạo một JSpinner
-		JSpinner spinnerngaysinh = new JSpinner();
+		spinnerngaysinh = new JSpinner();
 		spinnerngaysinh.setFont(new Font("Arial", Font.PLAIN, 18));
 		spinnerngaysinh.setBounds(224, 86, 120, 20);
 		panel.add(spinnerngaysinh);
@@ -141,7 +152,7 @@ public class pn_Datphong extends JPanel {
 		tfcccd.setColumns(10);
 
 		JLabel lblNewLabel_5 = new JLabel("Số điện thoại :");
-		lblNewLabel_5.setBounds(32, 186, 120, 17);
+		lblNewLabel_5.setBounds(32, 186, 120, 20);
 		panel.add(lblNewLabel_5);
 		lblNewLabel_5.setFont(new Font("Arial", Font.PLAIN, 18));
 
@@ -150,6 +161,28 @@ public class pn_Datphong extends JPanel {
 		panel.add(tfsdt);
 		tfsdt.setFont(new Font("Arial", Font.PLAIN, 18));
 		tfsdt.setColumns(10);
+		
+		lblNewLabel_6 = new JLabel("Ngày giờ nhận phòng :");
+		lblNewLabel_6.setFont(new Font("Arial", Font.PLAIN, 18));
+		lblNewLabel_6.setBounds(32, 217, 200, 20);
+		panel.add(lblNewLabel_6);
+		
+		lblNewLabel_7 = new JLabel("Ngày giờ trả phòng :");
+		lblNewLabel_7.setFont(new Font("Arial", Font.PLAIN, 18));
+		lblNewLabel_7.setBounds(32, 248, 200, 20);
+		panel.add(lblNewLabel_7);
+		
+		spinnerngaynhanphong = new JSpinner();
+		spinnerngaynhanphong.setModel(new SpinnerDateModel(new Date(1704042000000L), null, null, Calendar.DAY_OF_WEEK_IN_MONTH));
+		spinnerngaynhanphong.setFont(new Font("Arial", Font.PLAIN, 18));
+		spinnerngaynhanphong.setBounds(224, 219, 180, 20);
+		panel.add(spinnerngaynhanphong);
+		
+		spinnerngaytraphong = new JSpinner();
+		spinnerngaytraphong.setModel(new SpinnerDateModel(new Date(1704042000000L), null, null, Calendar.DAY_OF_WEEK_IN_MONTH));
+		spinnerngaytraphong.setFont(new Font("Arial", Font.PLAIN, 18));
+		spinnerngaytraphong.setBounds(224, 250, 180, 20);
+		panel.add(spinnerngaytraphong);
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(
@@ -159,17 +192,12 @@ public class pn_Datphong extends JPanel {
 		pnthongtin.add(panel_1);
 		panel_1.setLayout(null);
 
-		cbankhuya = new JCheckBox("Ăn khuya");
-		cbankhuya.setBounds(52, 78, 194, 23);
-		panel_1.add(cbankhuya);
-		cbankhuya.setFont(new Font("Arial", Font.PLAIN, 18));
-
-		cbdungdiemtam = new JCheckBox("Dùng điểm tâm");
+		cbdungdiemtam = new JCheckBox("Ăn tại phòng");
 		cbdungdiemtam.setBounds(52, 103, 194, 23);
 		panel_1.add(cbdungdiemtam);
 		cbdungdiemtam.setFont(new Font("Arial", Font.PLAIN, 18));
 
-		cbgiacquanao = new JCheckBox("Giặc quần áo");
+		cbgiacquanao = new JCheckBox("Đưa đón sân bay");
 		cbgiacquanao.setBounds(52, 128, 194, 23);
 		panel_1.add(cbgiacquanao);
 		cbgiacquanao.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -183,6 +211,139 @@ public class pn_Datphong extends JPanel {
 		cbtrongtre.setBounds(52, 153, 194, 23);
 		panel_1.add(cbtrongtre);
 		cbtrongtre.setFont(new Font("Arial", Font.PLAIN, 18));
+		
+		JCheckBox chckbxChoThuXe = new JCheckBox("Cho thuê xe tự lái ");
+		chckbxChoThuXe.setFont(new Font("Arial", Font.PLAIN, 18));
+		chckbxChoThuXe.setBounds(52, 77, 194, 23);
+		panel_1.add(chckbxChoThuXe);
 
+	}
+
+	public JSpinner getSpinnerngaynhanphong() {
+		return spinnerngaynhanphong;
+	}
+
+	public void setSpinnerngaynhanphong(JSpinner spinnerngaynhanphong) {
+		this.spinnerngaynhanphong = spinnerngaynhanphong;
+	}
+
+	public JSpinner getSpinnerngaytraphong() {
+		return spinnerngaytraphong;
+	}
+
+	public void setSpinnerngaytraphong(JSpinner spinnerngaytraphong) {
+		this.spinnerngaytraphong = spinnerngaytraphong;
+	}
+
+	public JSpinner getSpinnerngaysinh() {
+		return spinnerngaysinh;
+	}
+
+	public void setSpinnerngaysinh(JSpinner spinnerngaysinh) {
+		this.spinnerngaysinh = spinnerngaysinh;
+	}
+
+	public JTextField getTfhovaten() {
+		return tfhovaten;
+	}
+
+	public void setTfhovaten(JTextField tfhovaten) {
+		this.tfhovaten = tfhovaten;
+	}
+
+	public JTextField getTftinh() {
+		return tftinh;
+	}
+
+	public void setTftinh(JTextField tftinh) {
+		this.tftinh = tftinh;
+	}
+
+	public JTextField getTfcccd() {
+		return tfcccd;
+	}
+
+	public void setTfcccd(JTextField tfcccd) {
+		this.tfcccd = tfcccd;
+	}
+
+	public JTextField getTfsdt() {
+		return tfsdt;
+	}
+
+	public void setTfsdt(JTextField tfsdt) {
+		this.tfsdt = tfsdt;
+	}
+
+	public JCheckBox getCbtuantrangmat() {
+		return cbtuantrangmat;
+	}
+
+	public void setCbtuantrangmat(JCheckBox cbtuantrangmat) {
+		this.cbtuantrangmat = cbtuantrangmat;
+	}
+
+	public JCheckBox getCbgiacquanao() {
+		return cbgiacquanao;
+	}
+
+	public void setCbgiacquanao(JCheckBox cbgiacquanao) {
+		this.cbgiacquanao = cbgiacquanao;
+	}
+
+	public JCheckBox getCbdungdiemtam() {
+		return cbdungdiemtam;
+	}
+
+	public void setCbdungdiemtam(JCheckBox cbdungdiemtam) {
+		this.cbdungdiemtam = cbdungdiemtam;
+	}
+
+	public JCheckBox getCbtrongtre() {
+		return cbtrongtre;
+	}
+
+	public void setCbtrongtre(JCheckBox cbtrongtre) {
+		this.cbtrongtre = cbtrongtre;
+	}
+
+	public JButton getBtquaylai() {
+		return btquaylai;
+	}
+
+	public void setBtquaylai(JButton btquaylai) {
+		this.btquaylai = btquaylai;
+	}
+
+	public JButton getBtxacnhan() {
+		return btxacnhan;
+	}
+
+	public void setBtxacnhan(JButton btxacnhan) {
+		this.btxacnhan = btxacnhan;
+	}
+
+	public JButton getBtchoxacnhan() {
+		return btchoxacnhan;
+	}
+
+	public void setBtchoxacnhan(JButton btchoxacnhan) {
+		this.btchoxacnhan = btchoxacnhan;
+	}
+
+	public JLabel getLblNewLabel_6() {
+		return lblNewLabel_6;
+	}
+
+	public void setLblNewLabel_6(JLabel lblNewLabel_6) {
+		this.lblNewLabel_6 = lblNewLabel_6;
+	}
+
+	public JLabel getLblNewLabel_7() {
+		return lblNewLabel_7;
+	}
+
+	public void setLblNewLabel_7(JLabel lblNewLabel_7) {
+		this.lblNewLabel_7 = lblNewLabel_7;
 	}
 }
