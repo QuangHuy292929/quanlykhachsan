@@ -1,6 +1,6 @@
 package View;
 
-import java.awt.EventQueue;
+import java.awt.EventQueue;  
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,28 +9,46 @@ import javax.swing.UIManager;
 
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
+
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.awt.Insets;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.awt.CardLayout;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
+
+import Model.Phong;
+import Model.Phong.TrangThaiPhong;
+import controller.PhongManager;
+
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.RoundRectangle2D;
+import javax.swing.SwingConstants;
+import java.awt.SystemColor;
 
 public class Giaodien extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private Phong[] phong;
 	
 	JPanel pn_trangchu;
 	JPanel pn_sodophong;
 	JPanel pn_hoatdong;
+    Color colordat = new Color(205, 180, 219);
+    Color colorchoxacnhan = new Color(255, 200, 221);
 
-
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -49,16 +67,24 @@ public class Giaodien extends JFrame {
 	 * Create the frame.
 	 */
 	public Giaodien() {
+		setTitle("Hệ thống quản lý Khách Sạn");
+		getContentPane().setBackground(new Color(204, 255, 255));
+		Border border = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+        border = BorderFactory.createCompoundBorder(new RoundedBorder(20, 20, Color.GRAY), border);
+        Font font = new Font("Roboto", Font.BOLD, 22);
+        Font font2 = new Font("Roboto",Font.CENTER_BASELINE, 18);
+  
+		ArrayList<PhongManager> quanLyPhong = new ArrayList<PhongManager>();
 		this.setVisible(true);
 		this.setSize(1200, 800);
 		this.setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 
 		JPanel pn_menu = new JPanel();
+		pn_menu.setBackground(new Color(255, 255, 255));
 		pn_menu.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 255, 255), null, null, null));
 		pn_menu.setBounds(10, 10, 211, 742);
 		getContentPane().add(pn_menu);
-		pn_menu.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		pn_hoatdong = new JPanel();
 		pn_hoatdong.setBounds(231, 10, 947, 742);
@@ -67,46 +93,47 @@ public class Giaodien extends JFrame {
 		pn_hoatdong.setLayout(cardhd);
 
 		JButton bt_trangchu = new JButton("Trang chủ");
+		bt_trangchu.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/trangchu.png")));
+		bt_trangchu.setBackground(new Color(153, 153, 153));
+		bt_trangchu.setBounds(2, 2, 207, 67);
+		bt_trangchu.setFont(font2);
 		bt_trangchu.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				cardhd.show(pn_hoatdong, "anhTrangchu");
-
 			}
 		});
+		pn_menu.setLayout(null);
 		pn_menu.add(bt_trangchu);
 		
 		JButton bt_sodophong = new JButton("Sơ đồ phòng");
+		bt_sodophong.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/diagram.png")));
+		bt_sodophong.setBackground(new Color(153, 153, 153));
+		bt_sodophong.setBounds(2, 74, 207, 67);
+		bt_sodophong.setFont(font2);
 		pn_menu.add(bt_sodophong);
 
 		JButton bt_Thongke = new JButton("Thống kê");
+		bt_Thongke.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/pie-chart.png")));
+		bt_Thongke.setBackground(new Color(102, 102, 102));
+		bt_Thongke.setBounds(2, 146, 207, 67);
+		bt_Thongke.setFont(font2);
 		pn_menu.add(bt_Thongke);
 
 		JButton bt_baocao = new JButton("Báo Cáo");
+		bt_baocao.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/report.png")));
+		bt_baocao.setBackground(new Color(102, 102, 102));
+		bt_baocao.setBounds(2, 218, 207, 67);
+		bt_baocao.setFont(font2);
 		pn_menu.add(bt_baocao);
 
 		JButton bt_dangxuat = new JButton("Đăng xuất");
-		
+		bt_dangxuat.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/logout (1).png")));
+		bt_dangxuat.setBackground(new Color(102, 102, 102));
+		bt_dangxuat.setBounds(2, 290, 207, 67);
+		bt_dangxuat.setFont(font2);
 		pn_menu.add(bt_dangxuat);
-
-		JPanel panel_3 = new JPanel();
-		pn_menu.add(panel_3);
-
-		JPanel panel_4 = new JPanel();
-		pn_menu.add(panel_4);
-
-		JPanel panel_5 = new JPanel();
-		pn_menu.add(panel_5);
-
-		JPanel panel_6 = new JPanel();
-		pn_menu.add(panel_6);
-
-		JPanel panel_2 = new JPanel();
-		pn_menu.add(panel_2);
-
-		JPanel panel_1 = new JPanel();
-		pn_menu.add(panel_1);
 		 
 
 		JPanel pn_trangchu = new JPanel();
@@ -114,7 +141,7 @@ public class Giaodien extends JFrame {
 		pn_trangchu.setLayout(new BorderLayout(0, 0));
 
 		JPanel pn_sodophong = new JPanel();
-		pn_sodophong.setBackground(new Color(128, 255, 128));
+		pn_sodophong.setBackground(new Color(255, 255, 255));
 		pn_hoatdong.add(pn_sodophong, "sơ đồ phòng");
 		pn_sodophong.setLayout(null);
 		bt_sodophong.addActionListener(new ActionListener() {
@@ -132,165 +159,322 @@ public class Giaodien extends JFrame {
 		pn_bar.setLayout(new GridLayout(1, 0, 10, 10));
 
 		JPanel pn_luachon = new JPanel();
-		pn_luachon.setBackground(new Color(128, 255, 128));
+		pn_luachon.setBackground(new Color(255, 255, 255));
 		pn_bar.add(pn_luachon);
 		pn_luachon.setLayout(new GridLayout(1, 5, 10, 10));
 
 		JPanel panel_7 = new JPanel();
-	    panel_7.setBackground(Color.WHITE);
+	    panel_7.setBackground(Color.getHSBColor(0, 0, (float) 0.94));
 		pn_luachon.add(panel_7);
-
 		JLabel lblNewLabel = new JLabel("Trống");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel.setFont(font);
 		panel_7.add(lblNewLabel);
 
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.red);
+		panel.setBackground(colordat);
 		pn_luachon.add(panel);
-
 		JLabel lblNewLabel_1 = new JLabel("Đã Đặt");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_1.setFont(font);
 		panel.add(lblNewLabel_1);
 
 		JPanel panel_8 = new JPanel();
-		panel_8.setBackground(Color.cyan);
+		panel_8.setBackground(colorchoxacnhan);
 		pn_luachon.add(panel_8);
-
 		JLabel lblNewLabel_2 = new JLabel("Chờ Xác Nhận ");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_2.setFont(font);
 		panel_8.add(lblNewLabel_2);
-
+		
+		phong = new Phong[]{
+				new Phong(101, "Phòng 101", TrangThaiPhong.DANG_HOAT_DONG),
+				new Phong(102, "Phòng 102", TrangThaiPhong.CHO_XAC_NHAN),
+				new Phong(103, "Phòng 103", TrangThaiPhong.TRONG),
+				new Phong(104, "Phòng 104", TrangThaiPhong.TRONG),
+				new Phong(201, "Phòng 201", TrangThaiPhong.TRONG),
+				new Phong(202, "Phòng 202", TrangThaiPhong.TRONG),
+				new Phong(203, "Phòng 203", TrangThaiPhong.TRONG),
+				new Phong(204, "Phòng 204", TrangThaiPhong.TRONG),
+				new Phong(301, "Phòng 301", TrangThaiPhong.TRONG),
+				new Phong(302, "Phòng 302", TrangThaiPhong.TRONG),
+				new Phong(303, "Phòng 303", TrangThaiPhong.TRONG),
+				new Phong(304, "Phòng 304", TrangThaiPhong.TRONG),
+		};
+		
 		JPanel panel_phong1 = new JPanel();
-		panel_phong1.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), null, null, null));
+		PhongManager manager1 = new PhongManager(phong[0], panel_phong1);
+		manager1.start();
+		quanLyPhong.add(manager1);
+		panel_phong1.setBorder(border);
 		panel_phong1.setBounds(10, 79, 200, 200);
 		pn_sodophong.add(panel_phong1);
 		panel_phong1.setLayout(null);
-
 		JLabel lblNewLabel_3 = new JLabel("P_101");
-		lblNewLabel_3.setBounds(66, 82, 200, 22);
+		lblNewLabel_3.setBounds(10, 10, 70, 30);
 		lblNewLabel_3.setBackground(new Color(240, 240, 240));
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_3.setFont(font);
 		panel_phong1.add(lblNewLabel_3);
+		JLabel photo1 = new JLabel("");
+		photo1.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/website.png")));
+		photo1.setBounds(36, 50, 128, 128);
+		panel_phong1.add(photo1);
+		panel_phong1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardhd.show(pn_hoatdong, "phong 101");
+			}
+		});
 
 		JPanel panel_phong2 = new JPanel();
-		panel_phong2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		PhongManager manager2 = new PhongManager(phong[1], panel_phong2);
+		manager2.start();
+		quanLyPhong.add(manager2);
+		panel_phong2.setBorder(border);
 		panel_phong2.setBounds(252, 79, 200, 200);
 		pn_sodophong.add(panel_phong2);
 		panel_phong2.setLayout(null);
-
 		JLabel lblNewLabel_4 = new JLabel("P_102");
-		lblNewLabel_4.setBounds(84, 84, 52, 22);
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_4.setBounds(10, 10, 70, 30);
+		lblNewLabel_4.setFont(font);
 		panel_phong2.add(lblNewLabel_4);
+		JLabel photo2 = new JLabel("");
+		photo2.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/website.png")));
+		photo2.setBounds(36, 50, 128, 128);
+		panel_phong2.add(photo2);
+		panel_phong2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardhd.show(pn_hoatdong, "phong 102");
+			}
+		});
 
 		JPanel panel_phong3 = new JPanel();
-		panel_phong3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		PhongManager manager3 = new PhongManager(phong[2], panel_phong3);
+		manager3.start();
+		quanLyPhong.add(manager3);
+		panel_phong3.setBorder(border);
 		panel_phong3.setBounds(498, 79, 200, 200);
 		pn_sodophong.add(panel_phong3);
 		panel_phong3.setLayout(null);
-
 		JLabel lblNewLabel_5 = new JLabel("P_103");
-		lblNewLabel_5.setBounds(81, 81, 52, 22);
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_5.setBounds(10, 10, 70, 30);
+		lblNewLabel_5.setFont(font);
 		panel_phong3.add(lblNewLabel_5);
+		JLabel photo3 = new JLabel("");
+		photo3.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/website.png")));
+		photo3.setBounds(36, 50, 128, 128);
+		panel_phong3.add(photo3);
+		panel_phong3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardhd.show(pn_hoatdong, "phong 103");
+			}
+		});
 
 		JPanel panel_phong4 = new JPanel();
-		panel_phong4.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		PhongManager manager4 = new PhongManager(phong[3], panel_phong4);
+		manager4.start();
+		quanLyPhong.add(manager4);
+		panel_phong4.setBorder(border);
 		panel_phong4.setBounds(737, 79, 200, 200);
 		pn_sodophong.add(panel_phong4);
 		panel_phong4.setLayout(null);
-
-		JLabel lblNewLabel_6 = new JLabel("P_104");
-		lblNewLabel_6.setBounds(79, 79, 52, 22);
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		JLabel lblNewLabel_6 = new JLabel("P_102");
+		lblNewLabel_6.setBounds(10, 10, 70, 30);
+		lblNewLabel_6.setFont(font);
 		panel_phong4.add(lblNewLabel_6);
+		JLabel photo4 = new JLabel("");
+		photo4.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/website.png")));
+		photo4.setBounds(36, 50, 128, 128);
+		panel_phong4.add(photo4);
+		panel_phong4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardhd.show(pn_hoatdong, "phong 104");
+			}
+		});
 
 		JPanel panel_phong5 = new JPanel();
-		panel_phong5.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		PhongManager manager5 = new PhongManager(phong[4], panel_phong5);
+		manager5.start();
+		quanLyPhong.add(manager5);
+		panel_phong5.setBorder(border);
 		panel_phong5.setBounds(10, 306, 200, 200);
 		pn_sodophong.add(panel_phong5);
 		panel_phong5.setLayout(null);
-
 		JLabel lblNewLabel_7 = new JLabel("P_201");
-		lblNewLabel_7.setBounds(69, 89, 52, 22);
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_7.setBounds(10, 10, 70, 30);
+		lblNewLabel_7.setFont(font);
 		panel_phong5.add(lblNewLabel_7);
+		JLabel photo5 = new JLabel("");
+		photo5.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/website.png")));
+		photo5.setBounds(36, 50, 128, 128);
+		panel_phong5.add(photo5);
+		panel_phong5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardhd.show(pn_hoatdong, "phong 201");
+			}
+		});
+		
 		JPanel panel_phong6 = new JPanel();
-		panel_phong6.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		PhongManager manager6 = new PhongManager(phong[5], panel_phong6);
+		manager6.start();
+		quanLyPhong.add(manager6);
+		panel_phong6.setBorder(border);
 		panel_phong6.setBounds(10, 532, 200, 200);
 		pn_sodophong.add(panel_phong6);
 		panel_phong6.setLayout(null);
-
 		JLabel lblNewLabel_11 = new JLabel("P_301");
-		lblNewLabel_11.setBounds(70, 91, 52, 22);
-		lblNewLabel_11.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_11.setBounds(10, 10, 70, 30);
+		lblNewLabel_11.setFont(font);
 		panel_phong6.add(lblNewLabel_11);
+		JLabel photo6 = new JLabel("");
+		photo6.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/website.png")));
+		photo6.setBounds(36, 50, 128, 128);
+		panel_phong6.add(photo6);
+		panel_phong6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardhd.show(pn_hoatdong, "phong 202");
+			}
+		});
 
 		JPanel panel_phong7 = new JPanel();
-		panel_phong7.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		PhongManager manager7 = new PhongManager(phong[6], panel_phong7);
+		manager7.start();
+		quanLyPhong.add(manager7);
+		panel_phong7.setBorder(border);
 		panel_phong7.setBounds(252, 532, 200, 200);
 		pn_sodophong.add(panel_phong7);
 		panel_phong7.setLayout(null);
-
 		JLabel lblNewLabel_12 = new JLabel("P_302");
-		lblNewLabel_12.setBounds(74, 89, 52, 22);
-		lblNewLabel_12.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_12.setBounds(10, 10, 70, 30);
+		lblNewLabel_12.setFont(font);
 		panel_phong7.add(lblNewLabel_12);
+		JLabel photo7 = new JLabel("");
+		photo7.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/website.png")));
+		photo7.setBounds(36, 50, 128, 128);
+		panel_phong7.add(photo7);
+		panel_phong7.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardhd.show(pn_hoatdong, "phong 203");
+			}
+		});
 
 		JPanel panel_phong8 = new JPanel();
-		panel_phong8.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		PhongManager manager8 = new PhongManager(phong[7], panel_phong8);
+		manager8.start();
+		quanLyPhong.add(manager8);
+		panel_phong8.setBorder(border);
 		panel_phong8.setBounds(498, 532, 200, 200);
 		pn_sodophong.add(panel_phong8);
 		panel_phong8.setLayout(null);
-
 		JLabel lblNewLabel_13 = new JLabel("P_303");
-		lblNewLabel_13.setBounds(73, 84, 52, 22);
-		lblNewLabel_13.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_13.setBounds(10, 10, 70, 30);
+		lblNewLabel_13.setFont(font);
 		panel_phong8.add(lblNewLabel_13);
+		JLabel photo8 = new JLabel("");
+		photo8.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/website.png")));
+		photo8.setBounds(36, 50, 128, 128);
+		panel_phong8.add(photo8);
+		panel_phong8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardhd.show(pn_hoatdong, "phong 204");
+			}
+		});
 
 		JPanel panel_phong9 = new JPanel();
-		panel_phong9.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		PhongManager manager9 = new PhongManager(phong[8], panel_phong9);
+		manager9.start();
+		quanLyPhong.add(manager9);
+		panel_phong9.setBorder(border);
 		panel_phong9.setBounds(737, 532, 200, 200);
 		pn_sodophong.add(panel_phong9);
 		panel_phong9.setLayout(null);
-
 		JLabel lblNewLabel_14 = new JLabel("P_304");
-		lblNewLabel_14.setBounds(77, 85, 52, 22);
-		lblNewLabel_14.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_14.setBounds(10, 10, 70, 30);
+		lblNewLabel_14.setFont(font);
 		panel_phong9.add(lblNewLabel_14);
+		JLabel photo9 = new JLabel("");
+		photo9.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/website.png")));
+		photo9.setBounds(36, 50, 128, 128);
+		panel_phong9.add(photo9);
+		panel_phong9.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardhd.show(pn_hoatdong, "phong 301");
+			}
+		});
 
 		JPanel panel_phong10 = new JPanel();
-		panel_phong10.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		PhongManager manager10 = new PhongManager(phong[9], panel_phong10);
+		manager10.start();
+		quanLyPhong.add(manager10);
+		panel_phong10.setBorder(border);
 		panel_phong10.setBounds(737, 306, 200, 200);
 		pn_sodophong.add(panel_phong10);
 		panel_phong10.setLayout(null);
-
 		JLabel lblNewLabel_10 = new JLabel("P_204");
-		lblNewLabel_10.setBounds(76, 84, 52, 22);
-		lblNewLabel_10.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_10.setBounds(10, 10, 70, 30);
+		lblNewLabel_10.setFont(font);
 		panel_phong10.add(lblNewLabel_10);
+		JLabel photo10 = new JLabel("");
+		photo10.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/website.png")));
+		photo10.setBounds(36, 50, 128, 128);
+		panel_phong10.add(photo10);
+		panel_phong10.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardhd.show(pn_hoatdong, "phong 302");
+			}
+		});
 
 		JPanel panel_phong11 = new JPanel();
-		panel_phong11.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		PhongManager manager11 = new PhongManager(phong[10], panel_phong11);
+		manager11.start();
+		quanLyPhong.add(manager11);
+		panel_phong11.setBorder(border);
 		panel_phong11.setBounds(252, 306, 200, 200);
 		pn_sodophong.add(panel_phong11);
 		panel_phong11.setLayout(null);
-
 		JLabel lblNewLabel_8 = new JLabel("P_202");
-		lblNewLabel_8.setBounds(74, 85, 52, 22);
-		lblNewLabel_8.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_8.setBounds(10, 10, 70, 30);
+		lblNewLabel_8.setFont(font);
 		panel_phong11.add(lblNewLabel_8);
+		JLabel photo11 = new JLabel("");
+		photo11.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/website.png")));
+		photo11.setBounds(36, 50, 128, 128);
+		panel_phong11.add(photo11);
+		panel_phong11.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardhd.show(pn_hoatdong, "phong 303");
+			}
+		});
 
 		JPanel panel_phong12 = new JPanel();
-		panel_phong12.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		PhongManager manager12 = new PhongManager(phong[11], panel_phong12);
+		manager12.start();
+		quanLyPhong.add(manager12);
+		panel_phong12.setBorder(border);
 		panel_phong12.setBounds(498, 306, 200, 200);
 		pn_sodophong.add(panel_phong12);
 		panel_phong12.setLayout(null);
-
 		JLabel lblNewLabel_9 = new JLabel("P_203");
-		lblNewLabel_9.setBounds(82, 84, 52, 22);
-		lblNewLabel_9.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_9.setBounds(10, 10, 70, 30);
+		lblNewLabel_9.setFont(font);
 		panel_phong12.add(lblNewLabel_9);
+		JLabel photo12 = new JLabel("");
+		photo12.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/website.png")));
+		photo12.setBounds(36, 50, 128, 128);
+		panel_phong12.add(photo12);
+		panel_phong12.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardhd.show(pn_hoatdong, "phong 304");
+			}
+		});
 
 		JLabel lbanhtrangchu = new JLabel("");
 		lbanhtrangchu.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/anhksan.png")));
@@ -352,41 +536,64 @@ public class Giaodien extends JFrame {
 		pn_ghichu.setBounds(308, 23, 231, 209);
 		pn_baocao.add(pn_ghichu);
 
+		//Tạo các panel để cho thấy thông tin phòng
 		JPanel pn_p101 = new JPanel();
-		pn_hoatdong.add(pn_p101, "name_12329757094900");
-
 		JPanel pn_p102 = new JPanel();
-		pn_hoatdong.add(pn_p102, "name_12349158775400");
-
 		JPanel pn_p103 = new JPanel();
-		pn_hoatdong.add(pn_p103, "name_12353409635300");
-
 		JPanel pn_p104 = new JPanel();
-		pn_hoatdong.add(pn_p104, "name_12355914808400");
-
 		JPanel pn_p201 = new JPanel();
-		pn_hoatdong.add(pn_p201, "name_12358376875000");
-
 		JPanel pn_p202 = new JPanel();
-		pn_hoatdong.add(pn_p202, "name_12360528303900");
-
 		JPanel pn_p203 = new JPanel();
-		pn_hoatdong.add(pn_p203, "name_12362818254600");
-
 		JPanel pn_p204 = new JPanel();
-		pn_hoatdong.add(pn_p204, "name_12364778861900");
-
 		JPanel pn_p301 = new JPanel();
-		pn_hoatdong.add(pn_p301, "name_12367032568300");
-
 		JPanel pn_p302 = new JPanel();
-		pn_hoatdong.add(pn_p302, "name_12369476021800");
-
 		JPanel pn_p303 = new JPanel();
-		pn_hoatdong.add(pn_p303, "name_12371839192600");
-
 		JPanel pn_p304 = new JPanel();
-		pn_hoatdong.add(pn_p304, "name_12374367111300");
+		
+		//add vào panel hoạt động và đặt tên
+		pn_hoatdong.add(pn_p101, "phong 101");
+		pn_hoatdong.add(pn_p102, "phong 102");
+		pn_hoatdong.add(pn_p103, "phong 103");
+		pn_hoatdong.add(pn_p104, "phong 104");
+		pn_hoatdong.add(pn_p201, "phong 201");
+		pn_hoatdong.add(pn_p202, "phong 202");
+		pn_hoatdong.add(pn_p203, "phong 203");
+		pn_hoatdong.add(pn_p204, "phong 204");
+		pn_hoatdong.add(pn_p301, "phong 301");
+		pn_hoatdong.add(pn_p302, "phong 302");
+		pn_hoatdong.add(pn_p303, "phong 303");
+		pn_hoatdong.add(pn_p304, "phong 304");
 
 	}
+	
+    private static class RoundedBorder implements Border {
+        private final int arcWidth;
+        private final int arcHeight;
+        private final Color color;
+
+        public RoundedBorder(int arcWidth, int arcHeight, Color color) {
+            this.arcWidth = arcWidth;
+            this.arcHeight = arcHeight;
+            this.color = color;
+        }
+
+        @Override
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+            Graphics2D g2 = (Graphics2D) g.create();
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2.setColor(color);
+            g2.draw(new RoundRectangle2D.Double(x, y, width - 1, height - 1, arcWidth, arcHeight));
+            g2.dispose();
+        }
+
+        @Override
+        public Insets getBorderInsets(Component c) {
+            return new Insets(arcHeight / 2, arcWidth / 2, arcHeight / 2, arcWidth / 2);
+        }
+
+        @Override
+        public boolean isBorderOpaque() {
+            return true;
+        }
+    }
 }

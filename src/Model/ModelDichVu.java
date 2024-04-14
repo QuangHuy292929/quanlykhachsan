@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class ModelDichVu {
 	
-	
 	private int maDichvu;
 	private String tenDichvu;
 	private String mota;

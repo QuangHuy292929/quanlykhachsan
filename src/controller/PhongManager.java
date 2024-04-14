@@ -1,7 +1,8 @@
 package controller;
-import java.awt.Color;
+import java.awt.Color; 
 
 import javax.swing.JPanel;
+
 
 import Model.Phong;
 import Model.Phong.TrangThaiPhong;
@@ -14,8 +15,9 @@ public class PhongManager extends Thread {
         this.phong = phong;
         this.panelPhong = panelPhong;
     }
-    
-    
+    public Color colordat = new Color(205, 180, 219);
+    public Color colorchoxacnhan = new Color(255, 200, 221);
+
     // cái ni để xử lý sau
     @Override
     public void run() {
@@ -23,18 +25,18 @@ public class PhongManager extends Thread {
             // Mô phỏng trạng thái phòng thay đổi
             switch (phong.getTrangThai()) {
                 case TRONG:
-                    datPhong();
-                    break;
+                	panelPhong.setBackground(Color.getHSBColor(0, 0, (float) 0.94));
+                	break;
                 case DANG_HOAT_DONG:
-                    traPhong();
-                    break;
+                	panelPhong.setBackground(colorchoxacnhan);
+                	break;
                 case CHO_XAC_NHAN:
-                    xacNhanPhong();
-                    break;
+                	panelPhong.setBackground(colordat);
+                	break;
             }
 
             try {
-                Thread.sleep(2000); // Mô phỏng thời gian xử lý
+                Thread.sleep(1000); // Mô phỏng thời gian xử lý
             } catch (InterruptedException e) {
                 break;
             }
@@ -47,19 +49,16 @@ public class PhongManager extends Thread {
     private void datPhong() {
         phong.setTrangThai(TrangThaiPhong.CHO_XAC_NHAN);
         panelPhong.setBackground(Color.RED);
-        System.out.println("Đã đặt phòng " + phong.getTenPhong());
     }
 
     private void traPhong() {
         phong.setTrangThai(TrangThaiPhong.TRONG);
         panelPhong.setBackground(Color.GREEN);
-        System.out.println("Đã trả phòng " + phong.getTenPhong());
     }
 
     private void xacNhanPhong() {
         phong.setTrangThai(TrangThaiPhong.DANG_HOAT_DONG);
         panelPhong.setBackground(Color.YELLOW);
-        System.out.println("Đã xác nhận phòng " + phong.getTenPhong());
     }
     //////////////////////////////////////////////////////////////////
 }
