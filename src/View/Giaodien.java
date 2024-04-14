@@ -198,7 +198,21 @@ public class Giaodien extends JFrame {
 				new Phong(303, "Phòng 303", TrangThaiPhong.TRONG),
 				new Phong(304, "Phòng 304", TrangThaiPhong.TRONG),
 		};
-		
+
+		// Tạo các panel để cho thấy thông tin phòng
+		JPanel pn_p101 = new JPanel();
+		JPanel pn_p102 = new JPanel();
+		JPanel pn_p103 = new JPanel();
+		JPanel pn_p104 = new JPanel();
+		JPanel pn_p201 = new JPanel();
+		JPanel pn_p202 = new JPanel();
+		JPanel pn_p203 = new JPanel();
+		JPanel pn_p204 = new JPanel();
+		JPanel pn_p301 = new JPanel();
+		JPanel pn_p302 = new JPanel();
+		JPanel pn_p303 = new JPanel();
+		JPanel pn_p304 = new JPanel();
+
 		JPanel panel_phong1 = new JPanel();
 		PhongManager manager1 = new PhongManager(phong[0], panel_phong1);
 		manager1.start();
@@ -222,6 +236,14 @@ public class Giaodien extends JFrame {
 				cardhd.show(pn_hoatdong, "phong 101");
 			}
 		});
+		pn_Datphong datphong101 = new pn_Datphong();
+		pn_Choxacnhan xacnhan101 = new pn_Choxacnhan();
+		pn_Danghoatdong hoatdong101 = new pn_Danghoatdong();
+		CardLayout cardP1 = new CardLayout();
+		pn_p101.setLayout(cardP1);
+		pn_p101.add(datphong101,"dat phong 101");
+		pn_p101.add(xacnhan101, "xac nhan 101");
+		pn_p101.add(hoatdong101, "hoat dong 101");
 
 		JPanel panel_phong2 = new JPanel();
 		PhongManager manager2 = new PhongManager(phong[1], panel_phong2);
@@ -245,6 +267,14 @@ public class Giaodien extends JFrame {
 				cardhd.show(pn_hoatdong, "phong 102");
 			}
 		});
+		pn_Datphong datphong102 = new pn_Datphong();
+		pn_Choxacnhan xacnhan102 = new pn_Choxacnhan();
+		pn_Danghoatdong hoatdong102 = new pn_Danghoatdong();
+		CardLayout cardP2 = new CardLayout();
+		pn_p102.setLayout(cardP2);
+		pn_p102.add(datphong102,"dat phong 102");
+		pn_p102.add(xacnhan102, "xac nhan 102");
+		pn_p102.add(hoatdong102, "hoat dong 102");
 
 		JPanel panel_phong3 = new JPanel();
 		PhongManager manager3 = new PhongManager(phong[2], panel_phong3);
@@ -268,6 +298,14 @@ public class Giaodien extends JFrame {
 				cardhd.show(pn_hoatdong, "phong 103");
 			}
 		});
+		pn_Datphong datphong103 = new pn_Datphong();
+		pn_Choxacnhan xacnhan103 = new pn_Choxacnhan();
+		pn_Danghoatdong hoatdong103 = new pn_Danghoatdong();
+		CardLayout cardP3 = new CardLayout();
+		pn_p103.setLayout(cardP3);
+		pn_p103.add(datphong103,"dat phong 103");
+		pn_p103.add(xacnhan103, "xac nhan 103");
+		pn_p103.add(hoatdong103, "hoat dong 103");
 
 		JPanel panel_phong4 = new JPanel();
 		PhongManager manager4 = new PhongManager(phong[3], panel_phong4);
@@ -291,6 +329,14 @@ public class Giaodien extends JFrame {
 				cardhd.show(pn_hoatdong, "phong 104");
 			}
 		});
+		pn_Datphong datphong104 = new pn_Datphong();
+		pn_Choxacnhan xacnhan104 = new pn_Choxacnhan();
+		pn_Danghoatdong hoatdong104 = new pn_Danghoatdong();
+		CardLayout cardP4 = new CardLayout();
+		pn_p104.setLayout(cardP4);
+		pn_p104.add(datphong104,"dat phong 104");
+		pn_p104.add(xacnhan104, "xac nhan 104");
+		pn_p104.add(hoatdong104, "hoat dong 104");
 
 		JPanel panel_phong5 = new JPanel();
 		PhongManager manager5 = new PhongManager(phong[4], panel_phong5);
@@ -314,6 +360,14 @@ public class Giaodien extends JFrame {
 				cardhd.show(pn_hoatdong, "phong 201");
 			}
 		});
+		pn_Datphong datphong201 = new pn_Datphong();
+		pn_Choxacnhan xacnhan201 = new pn_Choxacnhan();
+		pn_Danghoatdong hoatdong201 = new pn_Danghoatdong();
+		CardLayout cardP5 = new CardLayout();
+		pn_p201.setLayout(cardP5);
+		pn_p201.add(datphong201,"dat phong 201");
+		pn_p201.add(xacnhan201, "xac nhan 201");
+		pn_p201.add(hoatdong201, "hoat dong 201");
 		
 		JPanel panel_phong6 = new JPanel();
 		PhongManager manager6 = new PhongManager(phong[5], panel_phong6);
@@ -337,6 +391,14 @@ public class Giaodien extends JFrame {
 				cardhd.show(pn_hoatdong, "phong 202");
 			}
 		});
+		pn_Datphong datphong202 = new pn_Datphong();
+		pn_Choxacnhan xacnhan202 = new pn_Choxacnhan();
+		pn_Danghoatdong hoatdong202 = new pn_Danghoatdong();
+		CardLayout cardP6 = new CardLayout();
+		pn_p202.setLayout(cardP6);
+		pn_p202.add(datphong202,"dat phong 202");
+		pn_p202.add(xacnhan202, "xac nhan 202");
+		pn_p202.add(hoatdong202, "hoat dong 202");
 
 		JPanel panel_phong7 = new JPanel();
 		PhongManager manager7 = new PhongManager(phong[6], panel_phong7);
@@ -360,6 +422,14 @@ public class Giaodien extends JFrame {
 				cardhd.show(pn_hoatdong, "phong 203");
 			}
 		});
+		pn_Datphong datphong203 = new pn_Datphong();
+		pn_Choxacnhan xacnhan203 = new pn_Choxacnhan();
+		pn_Danghoatdong hoatdong203 = new pn_Danghoatdong();
+		CardLayout cardP7 = new CardLayout();
+		pn_p203.setLayout(cardP7);
+		pn_p203.add(datphong203,"dat phong 203");
+		pn_p203.add(xacnhan203, "xac nhan 203");
+		pn_p203.add(hoatdong203, "hoat dong 203");
 
 		JPanel panel_phong8 = new JPanel();
 		PhongManager manager8 = new PhongManager(phong[7], panel_phong8);
@@ -383,6 +453,14 @@ public class Giaodien extends JFrame {
 				cardhd.show(pn_hoatdong, "phong 204");
 			}
 		});
+		pn_Datphong datphong204 = new pn_Datphong();
+		pn_Choxacnhan xacnhan204 = new pn_Choxacnhan();
+		pn_Danghoatdong hoatdong204 = new pn_Danghoatdong();
+		CardLayout cardP8 = new CardLayout();
+		pn_p204.setLayout(cardP8);
+		pn_p204.add(datphong204,"dat phong 204");
+		pn_p204.add(xacnhan204, "xac nhan 204");
+		pn_p204.add(hoatdong204, "hoat dong 204");
 
 		JPanel panel_phong9 = new JPanel();
 		PhongManager manager9 = new PhongManager(phong[8], panel_phong9);
@@ -406,6 +484,14 @@ public class Giaodien extends JFrame {
 				cardhd.show(pn_hoatdong, "phong 301");
 			}
 		});
+		pn_Datphong datphong301 = new pn_Datphong();
+		pn_Choxacnhan xacnhan301 = new pn_Choxacnhan();
+		pn_Danghoatdong hoatdong301 = new pn_Danghoatdong();
+		CardLayout cardP9 = new CardLayout();
+		pn_p301.setLayout(cardP9);
+		pn_p301.add(datphong301,"dat phong 301");
+		pn_p301.add(xacnhan301, "xac nhan 301");
+		pn_p301.add(hoatdong301, "hoat dong 301");
 
 		JPanel panel_phong10 = new JPanel();
 		PhongManager manager10 = new PhongManager(phong[9], panel_phong10);
@@ -429,6 +515,14 @@ public class Giaodien extends JFrame {
 				cardhd.show(pn_hoatdong, "phong 302");
 			}
 		});
+		pn_Datphong datphong302 = new pn_Datphong();
+		pn_Choxacnhan xacnhan302 = new pn_Choxacnhan();
+		pn_Danghoatdong hoatdong302 = new pn_Danghoatdong();
+		CardLayout cardP10 =new  CardLayout();
+		pn_p302.setLayout(cardP10);
+		pn_p302.add(datphong302,"dat phong 302");
+		pn_p302.add(xacnhan302, "xac nhan 302");
+		pn_p302.add(hoatdong302, "hoat dong 302");
 
 		JPanel panel_phong11 = new JPanel();
 		PhongManager manager11 = new PhongManager(phong[10], panel_phong11);
@@ -452,6 +546,14 @@ public class Giaodien extends JFrame {
 				cardhd.show(pn_hoatdong, "phong 303");
 			}
 		});
+		pn_Datphong datphong303 = new pn_Datphong();
+		pn_Choxacnhan xacnhan303 = new pn_Choxacnhan();
+		pn_Danghoatdong hoatdong303 = new pn_Danghoatdong();
+		CardLayout cardP11 = new CardLayout();
+		pn_p303.setLayout(cardP11);
+		pn_p303.add(datphong303,"dat phong 303");
+		pn_p303.add(xacnhan303, "xac nhan 303");
+		pn_p303.add(hoatdong303, "hoat dong 303");
 
 		JPanel panel_phong12 = new JPanel();
 		PhongManager manager12 = new PhongManager(phong[11], panel_phong12);
@@ -475,6 +577,14 @@ public class Giaodien extends JFrame {
 				cardhd.show(pn_hoatdong, "phong 304");
 			}
 		});
+		pn_Datphong datphong304 = new pn_Datphong();
+		pn_Choxacnhan xacnhan304 = new pn_Choxacnhan();
+		pn_Danghoatdong hoatdong304 = new pn_Danghoatdong();
+		CardLayout cardP12 = new CardLayout();
+		pn_p304.setLayout(cardP12);
+		pn_p304.add(datphong304,"dat phong 304");
+		pn_p304.add(xacnhan304, "xac nhan 304");
+		pn_p304.add(hoatdong304, "hoat dong 304");
 
 		JLabel lbanhtrangchu = new JLabel("");
 		lbanhtrangchu.setIcon(new ImageIcon(Giaodien.class.getResource("/fileanh/anhksan.png")));
@@ -536,19 +646,7 @@ public class Giaodien extends JFrame {
 		pn_ghichu.setBounds(308, 23, 231, 209);
 		pn_baocao.add(pn_ghichu);
 
-		//Tạo các panel để cho thấy thông tin phòng
-		JPanel pn_p101 = new JPanel();
-		JPanel pn_p102 = new JPanel();
-		JPanel pn_p103 = new JPanel();
-		JPanel pn_p104 = new JPanel();
-		JPanel pn_p201 = new JPanel();
-		JPanel pn_p202 = new JPanel();
-		JPanel pn_p203 = new JPanel();
-		JPanel pn_p204 = new JPanel();
-		JPanel pn_p301 = new JPanel();
-		JPanel pn_p302 = new JPanel();
-		JPanel pn_p303 = new JPanel();
-		JPanel pn_p304 = new JPanel();
+		
 		
 		//add vào panel hoạt động và đặt tên
 		pn_hoatdong.add(pn_p101, "phong 101");
@@ -564,6 +662,19 @@ public class Giaodien extends JFrame {
 		pn_hoatdong.add(pn_p303, "phong 303");
 		pn_hoatdong.add(pn_p304, "phong 304");
 
+	}
+	
+	private void xuLyDatVe(Phong phong, JPanel pntrangthai, JPanel pnhienthi, pn_Datphong datphong, pn_Choxacnhan xacnhan, pn_Danghoatdong hoatdong, CardLayout card, String tendp, String tenxn, String tenhd) {
+		if(phong.getTrangThai() == TrangThaiPhong.TRONG) {
+			pntrangthai.setBackground(colorchoxacnhan);
+			card.show(pnhienthi, tendp);
+			
+		} else if(phong.getTrangThai() == TrangThaiPhong.CHO_XAC_NHAN) {
+			
+		} else if(phong.getTrangThai() == TrangThaiPhong.DANG_HOAT_DONG) {
+			
+		}
+		
 	}
 	
     private static class RoundedBorder implements Border {
@@ -596,4 +707,6 @@ public class Giaodien extends JFrame {
             return true;
         }
     }
+    
+   
 }

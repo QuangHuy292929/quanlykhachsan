@@ -1,19 +1,30 @@
 package View;
 
-import java.awt.Dimension;
+import java.awt.Dimension; 
 
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
+import java.awt.Component;
 
 public class pn_Choxacnhan extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	private JButton btchoxacnhan;
+	private Component btquaylai;
+	private JButton btxacnhan;
+	private JComponent lbdichvu;
+	private JLabel lbsdt;
+	private JLabel lbcccd;
+	private Component lbtinhthanhpho;
+	private JLabel lbngaysinh;
+	private JComponent lbhovaten;
 
 	/**
 	 * Create the panel.
@@ -72,48 +83,48 @@ public class pn_Choxacnhan extends JPanel {
 		lblNewLabel_6.setFont(new Font("Arial", Font.PLAIN, 18));
 		pnthongtinchoxacnhan.add(lblNewLabel_6);
 
-		JLabel lbhovaten = new JLabel("New label");
+		lbhovaten = new JLabel("New label");
 		lbhovaten.setFont(new Font("Arial", Font.PLAIN, 18));
 		lbhovaten.setBounds(425, 120, 245, 29);
 		pnthongtinchoxacnhan.add(lbhovaten);
 
-		JLabel lbngaysinh = new JLabel("New label");
+		lbngaysinh = new JLabel("New label");
 		lbngaysinh.setFont(new Font("Arial", Font.PLAIN, 18));
 		lbngaysinh.setBounds(425, 161, 245, 29);
 		pnthongtinchoxacnhan.add(lbngaysinh);
 
-		JLabel lbtinhthanhpho = new JLabel("New label");
+		lbtinhthanhpho = new JLabel("New label");
 		lbtinhthanhpho.setFont(new Font("Arial", Font.PLAIN, 18));
 		lbtinhthanhpho.setBounds(425, 201, 245, 29);
 		pnthongtinchoxacnhan.add(lbtinhthanhpho);
 
-		JLabel lbcccd = new JLabel("New label");
+		lbcccd = new JLabel("New label");
 		lbcccd.setFont(new Font("Arial", Font.PLAIN, 18));
 		lbcccd.setBounds(425, 241, 245, 29);
 		pnthongtinchoxacnhan.add(lbcccd);
 
-		JLabel lbsdt = new JLabel("New label");
+		lbsdt = new JLabel("New label");
 		lbsdt.setFont(new Font("Arial", Font.PLAIN, 18));
 		lbsdt.setBounds(425, 284, 245, 22);
 		pnthongtinchoxacnhan.add(lbsdt);
 
-		JLabel lbdichvu = new JLabel("New label");
+		lbdichvu = new JLabel("New label");
 		lbdichvu.setFont(new Font("Arial", Font.PLAIN, 18));
 		lbdichvu.setBounds(425, 320, 245, 28);
 		pnthongtinchoxacnhan.add(lbdichvu);
 		pn_buttonchoxacnhan.setLayout(null);
 
-		JButton btquaylai = new JButton("Quay lại ");
+		btquaylai = new JButton("Quay lại ");
 		btquaylai.setBounds(10, 10, 148, 50);
 		btquaylai.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		pn_buttonchoxacnhan.add(btquaylai);
 
-		JButton btxacnhan = new JButton("Hủy phòng");
+		btxacnhan = new JButton("Hủy phòng");
 		btxacnhan.setBounds(601, 9, 141, 53);
 		btxacnhan.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		pn_buttonchoxacnhan.add(btxacnhan);
 
-		JButton btchoxacnhan = new JButton("Xác nhận đặt ");
+		btchoxacnhan = new JButton("Xác nhận đặt ");
 		btchoxacnhan.setBounds(752, 10, 148, 50);
 		btchoxacnhan.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		pn_buttonchoxacnhan.add(btchoxacnhan);

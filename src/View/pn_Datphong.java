@@ -1,6 +1,6 @@
 package View;
 
-import java.awt.Dimension;
+import java.awt.Dimension; 
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -26,6 +26,15 @@ public class pn_Datphong extends JPanel {
 	private JTextField tftinh;
 	private JTextField tfcccd;
 	private JTextField tfsdt;
+	private JCheckBox cbtuantrangmat;
+	private JCheckBox cbgiacquanao;
+	private JCheckBox cbdungdiemtam;
+	private JCheckBox cbankhuya;
+	private JCheckBox cbtrongtre;
+	private JButton btquaylai;
+	private JButton btxacnhan;
+	private JButton btchoxacnhan;
+	private SpinnerDateModel model;
 
 	/**
 	 * Create the panel.
@@ -50,36 +59,31 @@ public class pn_Datphong extends JPanel {
 		lblNewLabel.setBounds(200, 40, 600, 30);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 22));
 		pnthongtin.add(lblNewLabel);
-
-		JLabel lblNewLabel_6 = new JLabel("");
-		lblNewLabel_6.setBounds(633, 132, 83, 17);
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		pnthongtin.add(lblNewLabel_6);
 		pn_button.setLayout(null);
 
-		JButton btquaylai = new JButton("Quay Lại");
+		btquaylai = new JButton("Quay Lại");
 		btquaylai.setBounds(10, 10, 123, 37);
 		btquaylai.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		pn_button.add(btquaylai);
 
-		JButton btxacnhan = new JButton("Đặt Phòng");
+		btxacnhan = new JButton("Đặt Phòng");
 		btxacnhan.setBounds(783, 10, 117, 37);
 		btxacnhan.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		pn_button.add(btxacnhan);
 
-		JButton btchoxacnhan = new JButton("Chuyển Vào Chế Độ Chờ");
+		btchoxacnhan = new JButton("Chuyển Vào Chế Độ Chờ");
 		btchoxacnhan.setBounds(576, 10, 197, 37);
 		btchoxacnhan.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		pn_button.add(btchoxacnhan);
 
 		// Tạo một SpinnerDateModel để quản lý giá trị ngày
-		SpinnerDateModel model = new SpinnerDateModel(new Date(1713029691874L), null, null,
+		model = new SpinnerDateModel(new Date(1713029691874L), null, null,
 				Calendar.DAY_OF_WEEK_IN_MONTH);
 
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(
 				new EtchedBorder(EtchedBorder.RAISED, new Color(0, 255, 255), new Color(192, 192, 192)),
-				"   NH\u1EACP TH\u00D4NG TIN   ", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+				"   NHẬP THÔNG TIN   ", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel.setBounds(10, 80, 510, 362);
 		pnthongtin.add(panel);
 		panel.setLayout(null);
@@ -155,27 +159,27 @@ public class pn_Datphong extends JPanel {
 		pnthongtin.add(panel_1);
 		panel_1.setLayout(null);
 
-		JCheckBox cbankhuya = new JCheckBox("Ăn khuya");
+		cbankhuya = new JCheckBox("Ăn khuya");
 		cbankhuya.setBounds(52, 78, 194, 23);
 		panel_1.add(cbankhuya);
 		cbankhuya.setFont(new Font("Arial", Font.PLAIN, 18));
 
-		JCheckBox cbdungdiemtam = new JCheckBox("Dùng điểm tâm");
+		cbdungdiemtam = new JCheckBox("Dùng điểm tâm");
 		cbdungdiemtam.setBounds(52, 103, 194, 23);
 		panel_1.add(cbdungdiemtam);
 		cbdungdiemtam.setFont(new Font("Arial", Font.PLAIN, 18));
 
-		JCheckBox cbgiacquanao = new JCheckBox("Giặc quần áo");
+		cbgiacquanao = new JCheckBox("Giặc quần áo");
 		cbgiacquanao.setBounds(52, 128, 194, 23);
 		panel_1.add(cbgiacquanao);
 		cbgiacquanao.setFont(new Font("Arial", Font.PLAIN, 18));
 
-		JCheckBox cbtuantrangmat = new JCheckBox("Tuần trăng mật");
+		cbtuantrangmat = new JCheckBox("Tuần trăng mật");
 		cbtuantrangmat.setBounds(52, 178, 194, 23);
 		panel_1.add(cbtuantrangmat);
 		cbtuantrangmat.setFont(new Font("Arial", Font.PLAIN, 18));
 
-		JCheckBox cbtrongtre = new JCheckBox("Trông trẻ");
+		cbtrongtre = new JCheckBox("Trông trẻ");
 		cbtrongtre.setBounds(52, 153, 194, 23);
 		panel_1.add(cbtrongtre);
 		cbtrongtre.setFont(new Font("Arial", Font.PLAIN, 18));

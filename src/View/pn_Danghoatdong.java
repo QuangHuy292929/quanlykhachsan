@@ -19,7 +19,17 @@ import java.awt.event.ActionEvent;
 public class pn_Danghoatdong extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private JTable table;
+	private JButton btnTrPhng;
+	private JButton btquaylai;
+	private JLabel lbtienphong;
+	private JLabel lbngaygionhanphong;
+	private JLabel lbhovaten;
+	private JLabel lbngaysinh;
+	private JLabel lbtinhthanhpho;
+	private JLabel lbcccd;
+	private JLabel lbsdt;
+	private JLabel lbtiendichvu;
+	private JLabel lbtongtien;
 
 	/**
 	 * Create the panel.
@@ -72,7 +82,7 @@ public class pn_Danghoatdong extends JPanel {
 		lb1223.setBounds(5, 395, 150, 20);
 		pnhienthidichvudasudung.add(lb1223);
 
-		JLabel lbtiendichvu = new JLabel("New label");
+		lbtiendichvu = new JLabel("New label");
 		lbtiendichvu.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lbtiendichvu.setBounds(103, 394, 200, 25);
 		pnhienthidichvudasudung.add(lbtiendichvu);
@@ -118,27 +128,27 @@ public class pn_Danghoatdong extends JPanel {
 		lblNewLabel_5.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lblNewLabel_5);
 
-		JLabel lbsdt = new JLabel("New label");
+		lbsdt = new JLabel("New label");
 		lbsdt.setBounds(230, 110, 195, 22);
 		lbsdt.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lbsdt);
 
-		JLabel lbcccd = new JLabel("New label");
+		lbcccd = new JLabel("New label");
 		lbcccd.setBounds(230, 135, 195, 22);
 		lbcccd.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lbcccd);
 
-		JLabel lbtinhthanhpho = new JLabel("New label");
+		lbtinhthanhpho = new JLabel("New label");
 		lbtinhthanhpho.setBounds(230, 161, 195, 22);
 		lbtinhthanhpho.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lbtinhthanhpho);
 
-		JLabel lbngaysinh = new JLabel("New label");
+		lbngaysinh = new JLabel("New label");
 		lbngaysinh.setBounds(230, 189, 195, 22);
 		lbngaysinh.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lbngaysinh);
 
-		JLabel lbhovaten = new JLabel("New label");
+		lbhovaten = new JLabel("New label");
 		lbhovaten.setBounds(230, 216, 195, 22);
 		lbhovaten.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lbhovaten);
@@ -148,12 +158,12 @@ public class pn_Danghoatdong extends JPanel {
 		lblNewLabel_5_1_1.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lblNewLabel_5_1_1);
 
-		JLabel lbngaygionhanphong = new JLabel("New label");
+		lbngaygionhanphong = new JLabel("New label");
 		lbngaygionhanphong.setBounds(230, 270, 195, 22);
 		lbngaygionhanphong.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lbngaygionhanphong);
 
-		JLabel lbtienphong = new JLabel("New label");
+		lbtienphong = new JLabel("New label");
 		lbtienphong.setBounds(230, 243, 195, 22);
 		lbtienphong.setFont(new Font("Arial", Font.PLAIN, 18));
 		panel.add(lbtienphong);
@@ -169,7 +179,7 @@ public class pn_Danghoatdong extends JPanel {
 		lblNewLabel_5_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		pnbuttonhoatdong.add(lblNewLabel_5_1_1_1);
 
-		JLabel lbtongtien = new JLabel("New label");
+		lbtongtien = new JLabel("New label");
 		lbtongtien.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lbtongtien.setBounds(201, 6, 200, 17);
 		pnbuttonhoatdong.add(lbtongtien);
@@ -180,7 +190,7 @@ public class pn_Danghoatdong extends JPanel {
 		add(panel_1);
 		panel_1.setLayout(null);
 
-		JButton btquaylai = new JButton("Quay lại");
+		btquaylai = new JButton("Quay lại");
 		btquaylai.setBounds(10, 10, 132, 49);
 		panel_1.add(btquaylai);
 		btquaylai.addActionListener(new ActionListener() {
@@ -189,7 +199,7 @@ public class pn_Danghoatdong extends JPanel {
 		});
 		btquaylai.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
-		JButton btnTrPhng = new JButton("Trả phòng");
+		btnTrPhng = new JButton("Trả phòng");
 		btnTrPhng.setBounds(751, 10, 149, 49);
 		panel_1.add(btnTrPhng);
 		btnTrPhng.setFont(new Font("Tahoma", Font.PLAIN, 14));
